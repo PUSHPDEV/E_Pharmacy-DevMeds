@@ -1,0 +1,54 @@
+<div class="container mt-5">
+
+    <div class="row">
+        <div class="col-6">
+
+            <div class="card image-container p-4">
+
+                <img [src]="medicine.medicineImages[selectedMedicineIndex].url" alt="" class="image-center">
+            </div>
+
+            <div class="mt-3">
+
+                <mat-grid-list cols="3" gutterSize="10" rowHeight="1:1">
+                    <mat-grid-tile (click)="changeIndex(i)" *ngFor="let file of medicine.medicineImages; let i = index"
+                        style="border: 1px solid lightgray; border-radius: 10px; background-color: #fff; cursor: pointer;">
+
+                        <img [src]="file.url" alt="" height="150px">
+                        <!-- {{medicine.medicineImages}} -->
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </div>
+
+        </div>
+        <div class="col-6">
+
+            <div class="medicine-information">
+                <div class="mt-3">
+
+                    <h2>
+
+                        {{medicine.medicineName}}
+                    </h2>
+                </div>
+                <div class="mt-3">
+
+                    Description: <br>
+                    {{medicine.medicineDescription}}
+                </div>
+
+                <div class="mt-3">
+
+                    <b>Rs. {{medicine.medicineDiscountedPrice}}</b>
+                    <b class="m-2 " style="text-decoration: line-through; color: red;">
+                        {{medicine.medicineActualPrice}}</b>
+
+                </div>
+
+                <div class="mt-5 text-center">
+                    <button class="btn btn-info w-50 " (click)="buyMedicine(medicine.medicineId)">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="container mt-5">
+    <div class="card p-3">
+
+
+        <div class="row">
+
+            <div class="col-6">
+                <form #medicineForm="ngForm" (ngSubmit)="addMedicine(medicineForm)">
+                    <div class="form-floating mb-3 ">
+                        <input type="name" class="form-control w-100 input1" id="floatingName" placeholder="Medicine Name"
+                            [(ngModel)]="medicine.medicineName" name="medicineName">
+                        <label for="floatingName">Medicine Name</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="description" class="form-control input2" id="floatingDiscription"
+                            placeholder="Medicine Discription" [(ngModel)]="medicine.medicineDescription"
+                            name="medicineDescription">
+                        <label for="floatingDiscription">Medicine Discription</label>
+                    </div>
+                    <div class="form-floating mt-3">
+                        <input type="number" class="form-control input3" id="floatingActualPrice"
+                            placeholder="Medicine Actual Price" [(ngModel)]="medicine.medicineActualPrice"
+                            name="medicineActualPrice">
+                        <label for="floatingActualPrice">Medicine Actual Price</label>
+                    </div>
+                    <div class="form-floating mt-3">
+                        <input type="number" class="form-control input4" id="floatingDiscountedPrice"
+                            placeholder="Medicine Discounted Price" [(ngModel)]="medicine.medicineDiscountedPrice"
+                            name="medicineDiscountedPrice">
+                        <label for="floatingDiscountedPrice">Medicine Discounted Price</label>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                        <button type="button" class="btn btn-outline-warning">Clear</button>
+                        <button type="submit" class="btn btn-outline-info" *ngIf="isNewMedicine">Add Medicine</button>
+                        <button type="submit" class="btn btn-outline-info" *ngIf="!isNewMedicine">Update Medicine</button>
+                    </div>
+
+                </form>
+            </div>
+
+
+            <div class="col-6">
+                <!-- <label for="formFileMultiple" class="form-label">Insert Images</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple> -->
+
+
+                <div>
+
+                    <div class="dropzone" appDrag (files)="fileDropped($event)">
+
+                        <div class="text-wrapper">
+                            <div class="centered">
+
+                                Drag or drop your file or <a (click)="selectFile.click()"
+                                    class="browse-button"><i>browse</i></a> a file
+                            </div>
+                        </div>
+                    </div>
+                    <input type="file" value="select" (change)="onFileSelected($event)" multiple #selectFile
+                        style="display: none;">
+                </div>
+
+
+                <div class="mt-5">
+                    <div class="row">
+                        <div class="image col-3" *ngFor="let file of medicine.medicineImages; let i = index;">
+
+                            <div style="position: relative; ">
+
+                                <span class="btn-remove-image" (click)="removeImages(i)">x</span>
+                                <img [src]="file.url" width="100px" height="100px">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

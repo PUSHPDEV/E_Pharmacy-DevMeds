@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+body {
+    background: #f3f7fb !important;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(rgb(2, 247, 247), rgb(21, 212, 148), rgb(191, 97, 222));
+    border-radius: 15px;
+
+}

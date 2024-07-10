@@ -1,0 +1,67 @@
+.image {
+
+    border: 2px solid #eee;
+}
+
+.btn-remove-image {
+    position: absolute;
+    cursor: pointer;
+    top: 6px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 27px;
+    text-align: center;
+
+}
+
+
+.dropzone {
+    border: dashed 1px #aaa;
+    width: 300px;
+    height: 150px;
+    min-width: 100px;
+    display: table;
+    background-color: #eee;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+
+
+
+.text-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+
+}
+
+.centered {
+    text-align: center;
+}
+
+.browse-button {
+    text-decoration: underline;
+    color: rgb(31, 15, 212);
+    cursor: pointer;
+    font-weight: bold;
+
+
+}
+.input2{
+    caret-color: rgb(244, 248, 8);
+}
+.input1{
+    caret-color: rgb(9, 255, 0);
+}
+.input3{
+    caret-color: rgb(0, 255, 251);
+}
+.input4{
+    caret-color: rgb(255, 0, 242);
+}

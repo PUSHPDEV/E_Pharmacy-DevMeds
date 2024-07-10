@@ -1,0 +1,65 @@
+<div class="p-3 mt-5">
+
+
+    <table class="table ">
+        <thead>
+            <tr>
+                <!-- <th scope="col">Images</th> -->
+                <th scope="col">Id</th>
+                <th scope="col">Medicine Name</th>
+                <th scope="col">Medicine Description</th>
+                <th scope="col">Medicine Discounted Price</th>
+                <th scope="col">Medicine Actual Price</th>
+                <th scope="col">Images</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let medicine of medicineDetails">
+                <!-- <td>{{medicine.medicineImages}}</td> -->
+                <td>{{medicine.medicineId}}</td>
+                <td>{{medicine.medicineName}}</td>
+                <td>{{medicine.medicineDescription}}</td>
+                <td>{{medicine.medicineDiscountedPrice}}</td>
+                <td>{{medicine.medicineActualPrice}}</td>
+
+
+
+                <td>
+
+
+
+                    <!-- <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"> -->
+                    <button class="material-symbols-outlined text-primary " style="border: none; background: none;"
+                        (click)="showImages(medicine)"><span></span>
+                        image
+
+
+                    </button>
+                    <!-- </div> -->
+
+
+                </td>
+                <td>
+                    <button class="material-symbols-outlined text-success"
+                        style="border: none; background: none;"  (click)="editMedicine(medicine.medicineId)"><span></span>
+                        edit
+
+                    </button>
+
+                </td>
+                <td>
+
+                    <button class="material-symbols-outlined text-danger" style="border: none; background: none;"
+                        (click)="deleteMedicine(medicine.medicineId)"><span></span>
+                        delete
+
+                    </button>
+
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

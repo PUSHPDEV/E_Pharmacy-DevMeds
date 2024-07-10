@@ -1,0 +1,56 @@
+.container {
+    /* border: 3px solid red; */
+    margin: 20px;
+}
+
+mat-grid-tile {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: #fff;
+
+    /* padding: 9px; */
+}
+
+mat-grid-tile:hover {
+    box-shadow: 0 6px 12px -4px rgba(11, 18, 25, .1),
+        0 6px 12px -4px rgba(11, 18, 25, .1),
+        0 6px 12px -4px rgba(11, 18, 25, .1),
+
+        0 6px 12px -4px rgba(11, 18, 25, .1),
+        0 6px 12px -4px rgba(11, 18, 25, .1),
+        0 6px 12px -4px rgba(11, 18, 25, .1),
+        0 6px 12px -4px rgba(11, 18, 25, .1),
+        0 6px 12px -4px rgba(11, 18, 25, .1);
+}
+
+.home-page-medicine-image {
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.image-container img:hover{
+border: 1px solid #0fe;
+
+}
+.image-container {
+    position: relative;
+    height: 300px;
+    cursor: pointer;
+}
+
+p::selection {
+    background-color: rgb(127, 193, 191);
+    color: rgb(10, 45, 244);
+    font-weight: bold;
+
+}
+
+b::selection {
+    background-color: rgb(244, 249, 249);
+    color: red;
+}
