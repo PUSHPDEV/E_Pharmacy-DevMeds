@@ -37,6 +37,7 @@ import { BuyMedicineComponent } from './buy-medicine/buy-medicine.component';
 import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './register/register.component';
 import { CustomerReviewsComponent } from './customer-reviews/customer-reviews.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 
@@ -62,7 +63,8 @@ import { CustomerReviewsComponent } from './customer-reviews/customer-reviews.co
     CarouselComponent,
     BuyMedicineComponent,
     RegisterComponent,
-    CustomerReviewsComponent
+    CustomerReviewsComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
