@@ -75,7 +75,7 @@ export class BuyMedicineComponent implements OnInit {
     this.orderDetails.orderMedicineQuantityList.filter(
       (orderMedicine) => orderMedicine.medicineId === medicineId
     )[0].quantity = _quantity;
-  }
+  } 
 
 
 
