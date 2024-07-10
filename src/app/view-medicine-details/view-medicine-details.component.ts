@@ -14,9 +14,9 @@ import { MedicineService } from '../_services/medicine.service';
 })
 export class ViewMedicineDetailsComponent implements OnInit {
   medicine: any;
-
-
-
+  showTable = false;
+  showLoadMoreMedicineButton = false;
+  pageNumber: number = 0;
 
   medicineDetails: Medicine[] = [];
   displayedColumns: string[] = ['Id', 'Medicine Name', 'Medicine Description', 'Medicine Discounted Price', 'Medicine Actual Price', 'Images', 'Edit', 'Delete']
@@ -29,8 +29,16 @@ export class ViewMedicineDetailsComponent implements OnInit {
   }
 
 
-  public getAllMedicines() {
-    this.medicineService.getAllMedicines()
+  searchByKeyword(searchkeyword: any) {
+    console.log(searchkeyword);
+    this.pageNumber = 0;
+    this.medicineDetails = [];
+    this.getAllMedicines(searchkeyword);
+  }
+  public getAllMedicines(searchKeyword: string = "") {
+    this.showTable = false;
+
+    this.medicineService.getAllMedicines(this.pageNumber,searchKeyword )
       .pipe(
         map((x: Medicine[], i) => x.map((medicine: Medicine) => this.imageProcessingService.createImages(medicine)))
       )
@@ -38,7 +46,13 @@ export class ViewMedicineDetailsComponent implements OnInit {
         (resp: Medicine[]) => {
 
           console.log(resp);
-          this.medicineDetails = resp;
+          resp.forEach(medicine => this.medicineDetails.push(medicine));
+          this.showTable = true;
+          if (resp.length == 12) {
+            this.showLoadMoreMedicineButton = true;
+          } else {
+            this.showLoadMoreMedicineButton = false;
+          }
         },
         (error: HttpErrorResponse) => {
           console.log(error);
@@ -46,6 +60,12 @@ export class ViewMedicineDetailsComponent implements OnInit {
 
       );
   }
+
+  loadMoreButton() {
+    this.pageNumber = this.pageNumber + 1;
+    this.getAllMedicines();
+  }
+
 
   deleteMedicine(medicineId: number) {
     this.medicineService.deleteMedicine(medicineId).subscribe(

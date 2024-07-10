@@ -35,6 +35,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { CarouselComponent } from './carousel/carousel.component';
 import { BuyMedicineComponent } from './buy-medicine/buy-medicine.component';
 import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterComponent } from './register/register.component';
+import { CustomerReviewsComponent } from './customer-reviews/customer-reviews.component';
 
 
 
@@ -58,7 +60,9 @@ import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     UserComponent,
     CarouselComponent,
-    BuyMedicineComponent
+    BuyMedicineComponent,
+    RegisterComponent,
+    CustomerReviewsComponent
   ],
   imports: [
     BrowserModule,

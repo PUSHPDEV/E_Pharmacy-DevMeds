@@ -15,6 +15,15 @@ export class UserService {
   constructor(private httpclient: HttpClient,
     private userAuthService: UserAuthService
   ) { }
+
+  
+
+  public register(registerData: any) {
+    return this.httpclient.post(this.pathOfApi + '/registerNewUser', registerData);
+  }
+
+
+
   public login(loginData: any) {
     return this.httpclient.post(this.pathOfApi + "/authenticate", loginData, {
        headers: this.requestHeader 

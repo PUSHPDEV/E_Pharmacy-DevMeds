@@ -15,8 +15,8 @@ export class MedicineService {
     return this.httpClient.post<Medicine>("http://localhost:8080/addMedicine", medicine);
   }
 
-  public getAllMedicines() {
-    return this.httpClient.get<Medicine[]>("http://localhost:8080/getAllMedicines");
+  public getAllMedicines(pageNumber: number, searchKeyword: string = "") {
+    return this.httpClient.get<Medicine[]>("http://localhost:8080/getAllMedicines?pageNumber="+pageNumber+"&searchKey="+searchKeyword);
   }
   public getMedicineDetailsById(medicineId: number) {
     return this.httpClient.get<Medicine>("http://localhost:8080/getMedicineDetailsById/" + medicineId);
@@ -34,7 +34,7 @@ export class MedicineService {
   }
 
 
-  public placeOrder(orderDetails:OrderDetails){
-    return this.httpClient.post('http://localhost:8080/placeOrder/',orderDetails);
+  public placeOrder(orderDetails: OrderDetails) {
+    return this.httpClient.post("http://localhost:8080/placeOrder", orderDetails);
   }
 }

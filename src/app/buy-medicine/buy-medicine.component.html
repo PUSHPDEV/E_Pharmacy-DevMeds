@@ -50,7 +50,7 @@
           </div>
         </form>
       </div>
-      <div class="col-6">
+     <div class="col-6">
         <table class="table">
           <thead class="thead">
             <tr>
@@ -69,10 +69,7 @@
                   #quantity
                   class="form-select"
                   [ngModel]="getQuantityForMedicine(medicine.medicineId)"
-                  (change)="
-                    onQuantityChanged(quantity.value, medicine.medicineId)
-                  "
-                >
+                  (change)="onQuantityChanged(quantity.value, medicine.medicineId)">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -99,7 +96,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
+      </div> 
     </div>
   </div>
 </div>

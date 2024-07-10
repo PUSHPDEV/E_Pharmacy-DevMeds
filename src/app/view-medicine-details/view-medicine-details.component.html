@@ -1,5 +1,14 @@
 <div class="p-3 mt-5">
-
+    <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Search any medicine</mat-label>
+        <input matInput 
+        #searchkeyword
+         (keyup)="searchByKeyword(searchkeyword.value)" 
+         name="searchKey" id="searchKey"
+            placeholder="Search any medicine">
+        <!-- <mat-hint>Search any medicine</mat-hint> -->
+    </mat-form-field>
+    <div *ngIf="showTable">
 
     <table class="table ">
         <thead>
@@ -42,8 +51,8 @@
 
                 </td>
                 <td>
-                    <button class="material-symbols-outlined text-success"
-                        style="border: none; background: none;"  (click)="editMedicine(medicine.medicineId)"><span></span>
+                    <button class="material-symbols-outlined text-success" style="border: none; background: none;"
+                        (click)="editMedicine(medicine.medicineId)"><span></span>
                         edit
 
                     </button>
@@ -62,4 +71,10 @@
 
         </tbody>
     </table>
+
+</div>
+
+    <div class="text-center mt-4" *ngIf="showLoadMoreMedicineButton">
+        <button type="button" mat-raised-button color="basic" (click)="loadMoreButton()">Load more...</button>
+    </div>
 </div>

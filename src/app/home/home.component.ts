@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
 
   medicineDetails: Medicine[] = [];
 
-
+  pageNumber: number = 0;
+  showLoadButton = false;
 
   constructor(private medicineService: MedicineService, private imageProcessingService: ImageProcessingService, private router: Router) {
 
@@ -25,9 +26,15 @@ export class HomeComponent implements OnInit {
     this.getAllMedicines();
   }
 
+  searchByKeyword(searchkeyword: any) {
+    console.log(searchkeyword);
+    this.pageNumber = 0;
+    this.medicineDetails = [];
+    this.getAllMedicines(searchkeyword);
+  }
 
-  public getAllMedicines() {
-    this.medicineService.getAllMedicines()
+  public getAllMedicines(searchKey: string = "") {
+    this.medicineService.getAllMedicines(this.pageNumber, searchKey)
       .pipe(
         map((x: Medicine[], i) => x.map((medicine: Medicine) => this.imageProcessingService.createImages(medicine)))
       )
@@ -35,7 +42,12 @@ export class HomeComponent implements OnInit {
         (resp: Medicine[]) => {
 
           console.log(resp);
-          this.medicineDetails = resp;
+          if (resp.length == 12) {
+            this.showLoadButton = true;
+          } else {
+            this.showLoadButton = false;
+          }
+          resp.forEach(m => this.medicineDetails.push(m))
         },
         (error: HttpErrorResponse) => {
           console.log(error);
@@ -43,10 +55,17 @@ export class HomeComponent implements OnInit {
 
       );
   }
+  public loadMoreProduct() {
+
+    this.pageNumber = this.pageNumber + 1;
+    this.getAllMedicines();
+  }
 
 
   showMedicineDetails(medicineId: any) {
 
     this.router.navigate(['/medicineViewDetails', { medicineId: medicineId }]);
   }
+
+
 }

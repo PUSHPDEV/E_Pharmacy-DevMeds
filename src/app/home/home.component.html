@@ -5,6 +5,16 @@
 
 <div class="container p-4">
 
+    <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Search any medicine</mat-label>
+        <input matInput 
+        #searchkeyword
+         (keyup)="searchByKeyword(searchkeyword.value)" 
+         name="searchKey" id="searchKey"
+            placeholder="Search any medicine">
+        <!-- <mat-hint>Search any medicine</mat-hint> -->
+    </mat-form-field>
+
 
     <mat-grid-list cols="4" rowHeight="3:5" gutterSize="10">
         <mat-grid-tile *ngFor="let m of medicineDetails">
@@ -46,4 +56,8 @@
         <mat-grid-tile>3</mat-grid-tile>
         <mat-grid-tile>4</mat-grid-tile> -->
     </mat-grid-list>
+
+    <div class="text-center mt-5" *ngIf="showLoadButton">
+        <button type="button" mat-raised-button color="warn" (click)="loadMoreProduct()">Load More..</button>
+    </div>
 </div>

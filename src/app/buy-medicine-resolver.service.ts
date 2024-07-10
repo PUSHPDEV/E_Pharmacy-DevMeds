@@ -8,7 +8,7 @@ import { ImageProcessingService } from './image-processing.service';
 @Injectable({
   providedIn: 'root'
 })
-export class BuyMedicineResolverService implements Resolve<Medicine[]>{
+export class BuyMedicineResolverService implements Resolve<Medicine[]> {
 
 
   constructor(private medicineService: MedicineService,

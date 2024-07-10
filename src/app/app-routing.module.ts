@@ -12,17 +12,19 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { BuyMedicineComponent } from './buy-medicine/buy-medicine.component';
 import { BuyMedicineResolverService } from './buy-medicine-resolver.service';
+import { RegisterComponent } from './register/register.component';
+import { CustomerReviewsComponent } from './customer-reviews/customer-reviews.component';
 
 const routes: Routes = [
   //  { path: 'home', component: HomeComponent },
   { path: '', component: HomeComponent },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: ["Admin"] } },
-  { path: 'user', component: UserComponent, canActivate: [AuthGuard], data: { roles: ["User"] } },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: ['Admin'] } },
+  { path: 'user', component: UserComponent, canActivate: [AuthGuard], data: { roles: ['User'] } },
   { path: 'login', component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent },
   {
     path: 'addNewMedicine', component: AddNewMedicineComponent, canActivate: [AuthGuard],
-    data: { roles: ["Admin"] },
+    data: { roles: ['Admin'] },
 
     resolve: {
       medicine: MedicineResolveServiceService
@@ -30,16 +32,21 @@ const routes: Routes = [
   },
   {
     path: 'view', component: ViewMedicineDetailsComponent, canActivate: [AuthGuard],
-    data: { roles: ["Admin"] },
+    data: { roles: ['Admin'] },
   },
   { path: 'medicineViewDetails', component: MedicineViewDetailsComponent, resolve: { medicine: MedicineResolveServiceService } },
+
   {
-    path: 'buyMedicine', component: BuyMedicineComponent, canActivate: [AuthGuard], data: { roles: ["User"] },
+    path: 'buyMedicine', component: BuyMedicineComponent, canActivate: [AuthGuard], data: { roles: ['User'] },
     resolve: {
       medicineDetails: BuyMedicineResolverService,
     },
-
   },
+
+  {
+    path: 'register', component: RegisterComponent
+  },
+  { path: 'customer-review', component: CustomerReviewsComponent }
 ];
 
 @NgModule({
