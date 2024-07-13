@@ -2,61 +2,98 @@
 
 <!-- Main Code  -->
 
-
+<!-- 
 <div class="container p-4">
 
     <mat-form-field appearance="outline" class="w-100">
         <mat-label>Search any medicine</mat-label>
-        <input matInput 
-        #searchkeyword
-         (keyup)="searchByKeyword(searchkeyword.value)" 
-         name="searchKey" id="searchKey"
+        <input matInput #searchkeyword (keyup)="searchByKeyword(searchkeyword.value)" name="searchKey" id="searchKey"
             placeholder="Search any medicine">
-        <!-- <mat-hint>Search any medicine</mat-hint> -->
+        <mat-hint>Search any medicine</mat-hint>
     </mat-form-field>
 
 
-    <mat-grid-list cols="4" rowHeight="3:5" gutterSize="10">
+    <mat-grid-list cols="4" rowHeight="3:5" gutterSize="10" style="border: 2px solid blue;">
         <mat-grid-tile *ngFor="let m of medicineDetails">
 
             <div class="row p-5">
                 <div class="image-container" (click)="showMedicineDetails(m.medicineId)">
-
                     <img [src]="m.medicineImages[0].url" alt="" class="home-page-medicine-image" height="220"
                         (click)="showMedicineDetails(m.medicineId)">
                 </div>
-                <div class="mt-2">
 
+                <div class="mt-2">
                     <p> <b>{{m.medicineName}}</b></p>
                 </div>
-                <div class="mt-2">
 
+                <div class="mt-2">
                     <p
                         style="width: 288px; height: 46px; white-space: inherit; overflow: hidden; text-overflow: ellipsis;">
                         {{m.medicineDescription}}</p>
                 </div>
                 <div class="mt-2">
-
                     <b>Rs. {{m.medicineDiscountedPrice}} </b> &nbsp; <b
                         style="text-decoration: line-through; color: red;">{{m.medicineActualPrice}}</b>
-
                 </div>
                 <div class="mt-2">
-
                     <button type="button" class="btn btn-info" (click)="showMedicineDetails(m.medicineId)"
-                        style="margin-bottom: 15px;">View
-                        Details</button>
+                        style="margin-bottom: 15px;">View Details</button>
                 </div>
             </div>
 
-
-
         </mat-grid-tile>
-        <!-- <mat-grid-tile>2</mat-grid-tile>
-        <mat-grid-tile>3</mat-grid-tile>
-        <mat-grid-tile>4</mat-grid-tile> -->
     </mat-grid-list>
 
+    <div class="text-center mt-5" *ngIf="showLoadButton">
+        <button type="button" mat-raised-button color="warn" (click)="loadMoreProduct()">Load More..</button>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-xxl p-4">
+    <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Search any medicine</mat-label>
+        <input matInput #searchkeyword (keyup)="searchByKeyword(searchkeyword.value)" name="searchKey" id="searchKey"
+            placeholder="Search any medicine">
+        <!-- <mat-hint>Search any medicine</mat-hint> -->
+    </mat-form-field>
+    <div class="grid-list">
+        <div class="grid-item" *ngFor="let m of medicineDetails">
+            <div class="row p-3">
+                <div class="image-container" (click)="showMedicineDetails(m.medicineId)">
+                    <img [src]="m.medicineImages[0].url" alt="" class="home-page-medicine-image" height="220"
+                        (click)="showMedicineDetails(m.medicineId)">
+                </div>
+
+                <div class="mt-2">
+                    <p><b>{{m.medicineName}}</b></p>
+                </div>
+                <div class="mt-2">
+                    <p class="medicine-description">{{m.medicineDescription}}</p>
+                </div>
+                <div class="mt-2">
+                    <b>Rs. {{m.medicineDiscountedPrice}}</b> &nbsp; <b
+                        style="text-decoration: line-through; color: red;">{{m.medicineActualPrice}}</b>
+                </div>
+                <div class="mt-2">
+                    <button type="button" class="btn btn-info" (click)="showMedicineDetails(m.medicineId)"
+                        style="margin-bottom: 1px;">View Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="text-center mt-5" *ngIf="showLoadButton">
         <button type="button" mat-raised-button color="warn" (click)="loadMoreProduct()">Load More..</button>
     </div>

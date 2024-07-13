@@ -21,7 +21,8 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-    background: linear-gradient(rgb(2, 247, 247), rgb(21, 212, 148), rgb(191, 97, 222));
+    background: linear-gradient(rgb(67, 66, 66), rgb(0, 0, 0), rgb(80, 80, 80));
+    /* background: linear-gradient(rgb(2, 247, 247), rgb(21, 212, 148), rgb(191, 97, 222)); */
     border-radius: 15px;
 
 }

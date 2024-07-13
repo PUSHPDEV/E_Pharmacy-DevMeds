@@ -1,9 +1,21 @@
 <div class="container">
     <div class="review-img">
-        <img src="../../assets/customer-reviews/testimonial.jpg" alt="">
+        <img class=" img-fluid" style="width: 100%;" src="../../assets/customer-reviews/testimonial.jpg" alt="">
     </div>
     <div class="review-context">
         <h3>WHAT OUR CUSTOMERS SAY </h3>
-            <span>We would like to hear your comments about our service</span>
+        <span>We would like to hear your comments about our service</span>
+    </div>
+</div>
+
+
+<div class="container-xxl">
+
+    <div class="customer-review" *ngFor="let customer of customerReview">
+        <img [src]="customer.imgUrl" alt="Avatar" style="width:150px">
+        <div class="customer-content">
+            <p class="customer-description">{{customer.description}} </p>
+            <p class="customer-info">{{customer.customerName}}<span>( {{customer.customerPosition}} )</span></p>
+        </div>
     </div>
 </div>

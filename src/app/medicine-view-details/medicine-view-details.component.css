@@ -8,10 +8,17 @@
     height: 400px;
     position: relative;
 }
+ img{
+    transition: all 0.7s;
+}
+ img:hover{
+/* border: 1px solid #0fe; */
+transform: scale(1.1);
 
+}
 .image-center
 {
-    max-width: 90%;
+    max-width: 90%; 
     max-height: 90%;
     position: absolute;
     top: 0;
@@ -23,4 +30,20 @@
 
 h2::selection{
     color: brown;
+}
+
+@media (max-width:768px){
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+    .col-6{
+        width: 100%;
+    }
+    .medicine-information{
+        margin-top: 52px;
+    }
+    .img-list{
+        display: block;
+    }
 }
