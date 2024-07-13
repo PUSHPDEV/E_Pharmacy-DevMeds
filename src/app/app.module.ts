@@ -38,6 +38,7 @@ import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './register/register.component';
 import { CustomerReviewsComponent } from './customer-reviews/customer-reviews.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -64,7 +65,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     BuyMedicineComponent,
     RegisterComponent,
     CustomerReviewsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
